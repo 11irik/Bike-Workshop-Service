@@ -1,0 +1,26 @@
+html
+    head
+        title="Статус заказа"
+    body
+        if status
+            p= "Статус заказа: готов"
+            if description
+                p= "Описание: " + description
+            if firstDate
+                p= "Ориентировочная дата завершения: " + firstDate
+            if secondDate
+                p= "Задержка"
+                p= "Дата завершения: " + secondDate
+        else
+            p= "Статус заказа: не готов"
+            if description
+                p= "Описание: " + description
+            if firstDate
+                p= "Исходная дата завершения: " + firstDate
+            p= "Задержка"
+            if secondDate
+                p= "Ориентировочная дата завершения: " + secondDate
+            else
+                p= "Ориентировочная дата завершения не назначена"
+
+

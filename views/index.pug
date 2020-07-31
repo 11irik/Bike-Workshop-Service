@@ -1,0 +1,21 @@
+html
+    head
+        title="Статус заказа"
+    body
+        table
+            tr
+                th= "Id"
+                th= "Id"
+                th= "Id"
+        if status
+            p= "Статус заказа: готов"
+            if description
+                p= "Описание: " + description
+            if date
+                p= "Дата завершения: " + date
+        else
+            p= "Статус заказа: не готов"
+            if description
+                p= "Описание: " + description
+            if date
+                p= "Ориентировочная дата завершения: " + date

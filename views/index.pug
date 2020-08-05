@@ -7,14 +7,17 @@ html
                 th= "Id"
                 th= "Id"
                 th= "Id"
-        if status
+        if status === "done"
             p= "Статус заказа: готов"
             if description
                 p= "Описание: " + description
             if date
                 p= "Дата завершения: " + date
         else
-            p= "Статус заказа: не готов"
+            if status === "progress"
+                p= "Статус заказа: в работе"
+            if status === "queue"
+                p= "Статус заказа: в очереди"
             if description
                 p= "Описание: " + description
             if date

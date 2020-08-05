@@ -15,9 +15,9 @@ const MILLISECONDS_PER_HOUR = 1000 * 60 * 60;
 
 router.get('/:eventId', (req, res) => {
     try {
-        firebaseClient.getEvent(req.params.eventId).then(doc => {
-            console.log("firebase id request");
 
+        firebaseClient.getEvent(req.params.eventId).then(doc => {
+            console.log("firebase id request")
             try {
                 let now = new Date();
                 calendarApi.getEvent(doc.calendarId, doc.eventId).then(event => {
@@ -35,7 +35,9 @@ router.get('/:eventId', (req, res) => {
                         year: 'numeric'
                     };
 
-                    if (status) {
+                    console.log(status)
+
+                    if (status === "done") {
                         let hours = getHours(finalDate, approximateDate);
 
                         if (hours > 1) {
@@ -66,7 +68,7 @@ router.get('/:eventId', (req, res) => {
                                 status: status,
                                 firstDate: approximateDate.toLocaleDateString('ru-ru', options),
                                 secondDate: newDate,
-                                description: description
+                                description: description,
                             })
                         } else {
                             res.render('index', {

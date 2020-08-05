@@ -2,7 +2,7 @@ html
     head
         title="Статус заказа"
     body
-        if status
+        if status === "done"
             p= "Статус заказа: готов"
             if description
                 p= "Описание: " + description
@@ -12,7 +12,11 @@ html
                 p= "Задержка"
                 p= "Дата завершения: " + secondDate
         else
-            p= "Статус заказа: не готов"
+            if status === "progress"
+                p= "Статус заказа: в работе"
+            if status === "progress"
+                p= "Статус заказа: в очереди"
+
             if description
                 p= "Описание: " + description
             if firstDate

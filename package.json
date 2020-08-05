@@ -9,6 +9,7 @@
     "express": "^4.17.1",
     "firebase-admin": "^9.0.0",
     "googleapis": "39",
+    "log4js": "^6.3.0",
     "nodemon": "^2.0.4",
     "pug": "^3.0.0"
   },

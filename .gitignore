@@ -1,2 +1,5 @@
 /node_modules/
 /.idea/
+/request.log
+/firebaseKey.json
+/credentials.json

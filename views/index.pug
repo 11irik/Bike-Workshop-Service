@@ -10,7 +10,9 @@ html
         if status === "done"
             p= "Статус заказа: готов"
             if description
-                p= "Описание: " + description
+                p= "Описание: "
+                each line in description
+                    p= line
             if date
                 p= "Дата завершения: " + date
         else
@@ -19,6 +21,8 @@ html
             if status === "queue"
                 p= "Статус заказа: в очереди"
             if description
-                p= "Описание: " + description
+                p= "Описание: "
+                each line in description
+                    p= line
             if date
                 p= "Ориентировочная дата завершения: " + date

@@ -17,14 +17,13 @@ router.get('/:eventId', (req, res) => {
     try {
 
         firebaseClient.getEvent(req.params.eventId).then(doc => {
-            console.log("firebase id request")
             try {
                 let now = new Date();
                 calendarApi.getEvent(doc.calendarId, doc.eventId).then(event => {
                     let status = doc.status;
                     let approximateDate = new Date(doc.end);
                     let finalDate = new Date(doc.finalEnd);
-                    let description = event.description;
+                    let description = event.description.split('\n');
                     let eventEndDate = new Date(event.end.dateTime);
                     let options = {
                         weekday: 'long',
@@ -34,8 +33,6 @@ router.get('/:eventId', (req, res) => {
                         day: 'numeric',
                         year: 'numeric'
                     };
-
-                    console.log(status)
 
                     if (status === "done") {
                         let hours = getHours(finalDate, approximateDate);
